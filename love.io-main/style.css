@@ -1,0 +1,172 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Para centrar todo en columna */
+}
+
+body{
+    background-color: #F4C2C2;
+    margin: 0;
+    overflow: hidden;
+}
+
+.content{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-buttons{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 30px;
+}
+
+button{
+    background-color: #FADFAD;
+    height: 60px;
+    width: 220px;
+    border-radius: 30px;
+    border-style: none;
+    font-size: 20px;
+    transition: all 0.4s ease;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+}
+
+.fa-heart{
+    color: red;
+    font-size: 32px;
+}
+
+a {
+    text-decoration: none; /* Убираем подчёркивание */
+}
+
+
+
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    color: rgba(177, 169, 169, 0.5); /* Белый цвет с прозрачностью */
+    font-family: Arial, sans-serif;
+    pointer-events: none; /* Чтобы текст не мешал кликам */
+    user-select: none; /* Запрещает выделение текста */
+}
+
+#hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    z-index: -1; /* Чтобы сердечки были под контентом */
+}
+
+.heart {
+    position: absolute;
+    font-size: 32px;
+    color: #E75480; /* Цвет сердечка */
+    animation: floatUp 5s linear forwards; /* Анимация подъёма */
+    opacity: 0; /* Начальная прозрачность */
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) translateX(-50%); /* Начальная позиция (снизу за пределами экрана) */
+        opacity: 1; /* Появляются */
+    }
+    100% {
+        transform: translateY(-20vh) translateX(-50%); /* Конечная позиция (выше верхней границы) */
+        opacity: 0; /* Исчезают */
+    }
+}
+
+
+button:hover {
+    background-color: palevioletred; /* Изменяем цвет при наведении */
+    transform: scale(1.3); /* Увеличиваем кнопку */
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
+  .ubuntu-regular {
+    font-family: "Ubuntu", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .ubuntu-medium {
+    font-family: "Ubuntu", serif;
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  .ubuntu-bold {
+    font-family: "Ubuntu", serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 40px;
+  }
+  
+/*==========================FOR PHONE============================= */
+
+@media screen and (max-width: 768px) {
+    .content {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .ubuntu-bold {
+        font-size: 28px; /* Уменьшаем заголовок */
+    }
+
+    .action-buttons {
+        flex-direction: column; /* Кнопки одна под другой */
+        gap: 20px; /* Отступ между кнопками */
+    }
+
+    button {
+        width: 180px;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .heart {
+        font-size: 18px; /* Уменьшаем размер сердечек */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .ubuntu-bold {
+        font-size: 24px;
+    }
+
+    button {
+        width: 160px;
+        height: 45px;
+        font-size: 16px;
+    }
+
+    .heart {
+        font-size: 16px;
+    }
+}
+
+button:active {
+    transform: scale(1.1);
+    box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.3);
+}

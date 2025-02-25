@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuerdos</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-pink-200 min-h-screen p-4">
+    <section class="max-w-4xl mx-auto mt-8">
+        <!-- Primer recuerdo -->
+        <article class="bg-amber-100 rounded-3xl p-4 md:p-8 mb-12 transform transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg mx-4 md:mx-0">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+                <div class="w-full md:w-1/2">
+                    <img src="/love.io-main/secondPage/img/imagen1.jpg" alt="Primer encuentro" 
+                        class="w-full h-[300px] object-cover rounded-lg">
+                </div>
+                <div class="flex flex-col gap-4 w-full md:w-1/2">
+                    <h2 class="text-2xl md:text-3xl font-bold">El Primer Mes</h2>
+                    <p class="text-lg md:text-xl">Como olvidar ese día en el que oficialmente nos convertimos en pareja. Nuestra primera cita como novios, las risas, los chistes, los buenos momentos que compartimos y esa sensación única de estar juntos. Y obvio la primera cita que organizaste jajaja</p>
+                    <div class="bg-pink-200 rounded-2xl p-4 flex items-center gap-4 max-w-[250px]">
+                        <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-pink-300 transition-colors">
+                            <span class="text-xl">▶</span>
+                        </button>
+                        <input type="range" class="w-24 accent-pink-500">
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Segundo recuerdo -->
+        <article class="bg-amber-100 rounded-3xl p-4 md:p-8 mb-12 transform transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg mx-4 md:mx-0">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+                <div class="w-full md:w-1/2">
+                    <img src="../secondPage/img/imagen2.jpg" alt="Primera caminata" 
+                        class="w-full h-[300px] object-cover rounded-lg">
+                </div>
+                <div class="flex flex-col gap-4 w-full md:w-1/2">
+                    <h2 class="text-2xl md:text-3xl font-bold">La vez que se lo dijimos a tus padres</h2>
+                    <p class="text-lg md:text-xl">Esta foto es del día en el que le contamos a tus padres. Un día donde estuvimos muy nerviosos, preguntándonos cómo reaccionarían, pero al final todo salió justo como esperabamos. Y aquí estamos juntos y felices.</p>
+                    <div class="bg-pink-200 rounded-2xl p-4 flex items-center gap-4 max-w-[250px]">
+                        <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-pink-300 transition-colors">
+                            <span class="text-xl">▶</span>
+                        </button>
+                        <input type="range" class="w-24 accent-pink-500">
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- Tercer recuerdo -->
+        <article class="bg-amber-100 rounded-3xl p-4 md:p-8 mb-12 transform transition-all duration-300 hover:scale-105 hover:shadow-xl shadow-lg mx-4 md:mx-0">
+            <div class="flex flex-col md:flex-row items-start gap-6">
+                <div class="w-full md:w-1/2">
+                    <img src="../secondPage/img/imagen3.jpg" alt="Primera foto" 
+                        class="w-full h-[300px] object-cover rounded-lg">
+                </div>
+                <div class="flex flex-col gap-4 w-full md:w-1/2">
+                    <h2 class="text-2xl md:text-3xl font-bold">El primero cumpleaños que fuimos como pareja</h2>
+                    <p class="text-lg md:text-xl">Elay este fue nuestro primer cumpleaños yendo como pareja, y el día en el que pensaron que viviamos juntos, lo cual nos dio bastante chiste por la forma en que nos sirvieron la comida, pero que entre broma y broma, esperemos algún día poder cumplir con eso jeje </p>
+                    <div class="bg-pink-200 rounded-2xl p-4 flex items-center gap-4 max-w-[250px]">
+                        <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center hover:bg-pink-300 transition-colors">
+                            <span class="text-xl">▶</span>
+                        </button>
+                        <input type="range" class="w-24 accent-pink-500">
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+
+    <div class="text-center mt-12 mb-8">
+        <h2 class="text-3xl font-bold mb-4">Gracias por estar en mi vida <i class="fas fa-heart text-red-500">Bianca</i></h2>
+    </div>
+
+    <script>
+        // Función para el control de audio
+        document.querySelectorAll('button').forEach((button, index) => {
+            const audio = new Audio(`../secondPage/songs/song${index + 1}.mp3`);
+            let isPlaying = false;
+
+            button.addEventListener('click', () => {
+                if (isPlaying) {
+                    audio.pause();
+                    button.querySelector('span').textContent = '▶';
+                } else {
+                    audio.play();
+                    button.querySelector('span').textContent = '⏸';
+                }
+                isPlaying = !isPlaying;
+            });
+
+            // Control de volumen
+            const volumeSlider = button.nextElementSibling;
+            volumeSlider.addEventListener('input', (e) => {
+                audio.volume = e.target.value;
+            });
+        });
+    </script>
+</body>
+</html>
